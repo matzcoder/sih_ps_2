@@ -1,6 +1,6 @@
 from typing import Optional, Dict, Any
 from datetime import datetime
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 class SignalJobResponse(BaseModel):
     id: str
@@ -18,8 +18,7 @@ class SignalJobResponse(BaseModel):
     updated_at: Optional[datetime] = None
     results: Optional[Dict[str, Any]] = None
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 class SignalJobSummary(BaseModel):
     id: str

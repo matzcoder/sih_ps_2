@@ -1,10 +1,24 @@
 import logging
-from backend.app.core.config import settings
+import sys
+from pathlib import Path
+
+# Add project root and backend directory to sys.path for direct script/worker execution
+_root_dir = str(Path(__file__).resolve().parents[3])
+_backend_dir = str(Path(__file__).resolve().parents[2])
+if _root_dir not in sys.path:
+    sys.path.insert(0, _root_dir)
+if _backend_dir not in sys.path:
+    sys.path.insert(0, _backend_dir)
+
+try:
+    from backend.app.core.config import settings
+except ImportError:
+    from app.core.config import settings  # type: ignore
 
 logger = logging.getLogger(__name__)
 
 try:
-    from celery import Celery
+    from celery import Celery  # type: ignore
 
     celery_app = Celery(
         "signal_worker",

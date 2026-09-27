@@ -2,9 +2,10 @@ import os
 from typing import List, Union
 
 try:
-    from pydantic_settings import BaseSettings
+    from pydantic_settings import BaseSettings, SettingsConfigDict
 except ImportError:
-    from pydantic import BaseModel as BaseSettings
+    from pydantic import BaseModel as BaseSettings  # type: ignore
+    SettingsConfigDict = None
 
 class Settings(BaseSettings):
     PROJECT_NAME: str = "SIGNAL-X DSP & ML Platform"
@@ -48,10 +49,17 @@ class Settings(BaseSettings):
         "*"
     ]
 
-    class Config:
-        case_sensitive = True
-        env_file = ".env"
-        extra = "allow"
+    try:
+        model_config = SettingsConfigDict(
+            case_sensitive=True,
+            env_file=".env",
+            extra="allow"
+        )
+    except NameError:
+        class Config:
+            case_sensitive = True
+            env_file = ".env"
+            extra = "allow"
 
 settings = Settings()
 

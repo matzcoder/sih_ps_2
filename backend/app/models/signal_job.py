@@ -1,7 +1,14 @@
 import uuid
-from datetime import datetime
+from datetime import datetime, timezone
 from sqlalchemy import Column, String, Float, Integer, DateTime, JSON, Text
-from backend.app.db.session import Base
+
+try:
+    from backend.app.db.session import Base
+except ImportError:
+    from app.db.session import Base  # type: ignore
+
+def get_utc_now():
+    return datetime.now(timezone.utc)
 
 class SignalJob(Base):
     __tablename__ = "signal_jobs"
@@ -25,8 +32,8 @@ class SignalJob(Base):
     error_message = Column(Text, nullable=True)
 
     # Timestamps
-    created_at = Column(DateTime, default=datetime.utcnow)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = Column(DateTime, default=get_utc_now)
+    updated_at = Column(DateTime, default=get_utc_now, onupdate=get_utc_now)
 
     # Detailed Analysis Results
     results = Column(JSON, nullable=True)

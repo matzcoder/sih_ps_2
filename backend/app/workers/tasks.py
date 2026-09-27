@@ -1,8 +1,23 @@
 import time
 import logging
-from backend.app.workers.celery_app import celery_app
-from backend.app.db.session import SessionLocal
-from backend.app.models.signal_job import SignalJob
+import sys
+from pathlib import Path
+
+_root_dir = str(Path(__file__).resolve().parents[3])
+_backend_dir = str(Path(__file__).resolve().parents[2])
+if _root_dir not in sys.path:
+    sys.path.insert(0, _root_dir)
+if _backend_dir not in sys.path:
+    sys.path.insert(0, _backend_dir)
+
+try:
+    from backend.app.workers.celery_app import celery_app
+    from backend.app.db.session import SessionLocal
+    from backend.app.models.signal_job import SignalJob
+except ImportError:
+    from app.workers.celery_app import celery_app  # type: ignore
+    from app.db.session import SessionLocal  # type: ignore
+    from app.models.signal_job import SignalJob  # type: ignore
 
 logger = logging.getLogger(__name__)
 

@@ -1,0 +1,19 @@
+# Backend files (Python, Celery, PyTorch, Librosa, Redis)
+backend/
+signal_db.sqlite
+.pytest_cache/
+docker-compose.yml
+
+# Agent and MCP configs
+.agents/
+stitch-mcp.config.json
+
+# Local env files
+.env
+.env.local
+
+# Documentation markdown files
+01-infra-scaffold.md
+02-dsp-ml-services.md
+03-frontend-uiux-stitch.md
+04-frontend-viz-pro.md
