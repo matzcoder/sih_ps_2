@@ -1,0 +1,55 @@
+{
+  "name": "SIGNAL-X Stitch Design System",
+  "version": "2.0.0",
+  "mcpEndpoint": "https://stitch.googleapis.com/mcp",
+  "theme": "dark-tactical-orange",
+  "tokens": {
+    "palette": {
+      "primary": "#FF6B00",
+      "primaryHover": "#FF8A00",
+      "primaryActive": "#E05E00",
+      "primaryGlow": "rgba(255, 107, 0, 0.35)",
+      "secondary": "#FF8A00",
+      "accent": "#FFB000",
+      "highlight": "#FF4D4D",
+      "coral": "#FF5733",
+      "amber": "#F59E0B",
+      "goldenYellow": "#FBBF24",
+      "background": "#080B12",
+      "backgroundDeep": "#04060A",
+      "surface": "#0F1523",
+      "surfaceElevated": "#161F33",
+      "surfaceHover": "#1C273F",
+      "surfaceContainerLowest": "#0A0E17",
+      "border": "rgba(255, 107, 0, 0.15)",
+      "borderHover": "rgba(255, 107, 0, 0.45)",
+      "borderActive": "rgba(255, 107, 0, 0.75)",
+      "borderSubtle": "rgba(255, 255, 255, 0.08)",
+      "text": "#F8FAFC",
+      "textMuted": "#94A3B8",
+      "textDim": "#64748B",
+      "danger": "#EF4444",
+      "warning": "#F59E0B",
+      "info": "#38BDF8"
+    },
+    "typography": {
+      "fontSans": ["Inter", "system-ui", "-apple-system", "sans-serif"],
+      "fontMono": ["JetBrains Mono", "Consolas", "monospace"],
+      "scales": {
+        "hero": "text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight",
+        "h1": "text-2xl sm:text-3xl font-bold tracking-tight",
+        "h2": "text-xl sm:text-2xl font-bold tracking-normal",
+        "h3": "text-lg font-semibold tracking-normal",
+        "body": "text-sm leading-relaxed text-slate-300",
+        "caption": "text-xs font-mono text-slate-400 tracking-wider",
+        "micro": "text-[10px] font-mono uppercase tracking-widest"
+      }
+    },
+    "elevation": {
+      "level1": "0 2px 8px -1px rgba(0, 0, 0, 0.6), 0 1px 4px -1px rgba(255, 107, 0, 0.05)",
+      "level2": "0 8px 24px -4px rgba(0, 0, 0, 0.7), 0 2px 8px -2px rgba(255, 107, 0, 0.1)",
+      "level3": "0 16px 48px -8px rgba(0, 0, 0, 0.8), 0 4px 16px -2px rgba(255, 107, 0, 0.2)",
+      "glowPrimary": "0 0 25px -3px rgba(255, 107, 0, 0.45)"
+    }
+  }
+}
